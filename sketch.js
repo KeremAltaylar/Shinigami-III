@@ -30,7 +30,7 @@ function setup() {
   console.log(incchoice);
   cols = floor(windowWidth / scl);
   rows = floor(windowHeight / scl);
-  fr = createP("");
+  //fr = createP("");
   flowfield = new Array(cols * rows);
   for (i = 0; i < 1000; i++) {
     particles[i] = new Particle(
@@ -123,6 +123,14 @@ function draw() {
 }
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
+  restart();
+}
+
+function mousePressed() {
+  restart();
+}
+
+function restart() {
   background(29);
   inc = fxrandRange(2, 3, 0.1);
   scl = fxrandRange(100, 200, 1);
@@ -131,7 +139,6 @@ function windowResized() {
   loop();
   cols = floor(windowWidth / scl);
   rows = floor(windowHeight / scl);
-  //fr = createP("");
   flowfield = new Array(cols * rows);
   for (i = 0; i < 1000; i++) {
     particles[i] = new Particle(
@@ -153,29 +160,6 @@ function windowResized() {
       0.1
     );
   }
-  // push();
-  // noStroke();
-  // background(255);
-  // rectMode(RADIUS);
-  // fill(255);
-  // //fill(alpha(50));
-  // rect(
-  //   windowWidth / 2,
-  //   windowHeight / 2,
-  //   windowWidth / 2 - 30,
-  //   windowHeight / 2 - 30
-  // );
-
-  // rectMode(RADIUS);
-  // fill(255, 1 * sin(millis() * 1000));
-  // noStroke();
-  // rect(
-  //   windowWidth / 2,
-  //   windowHeight / 2,
-  //   windowWidth / 2 - 30,
-  //   windowHeight / 2 - 30
-  // );
-  // pop();
 }
 
 function fxrandRange(min, max, step) {
